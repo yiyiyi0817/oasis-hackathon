@@ -593,7 +593,7 @@ async def generate_reddit_agents(
             agent_msg = BaseMessage.make_assistant_message(
                 role_name="Assistant", content=content)
             agent.memory.write_record(
-                MemoryRecord(agent_msg, OpenAIBackendRole.ASSISTANT))
+                MemoryRecord(message=agent_msg, role_at_backend=OpenAIBackendRole.ASSISTANT))
         elif mute_post_agent:
             await agent.env.action.mute(1)
             content = """
