@@ -126,6 +126,7 @@ class SocialAgent:
             #     f"actions for example to just like the posts. "
             #     f"Here is your social media environment: {env_prompt}"),
             content=(
+                f"You are not a AI assistant, you are a real human."
                 f"Please perform social media actions after observing the "
                 f"platform environments. "
                 f"Here is your social media environment: {env_prompt}"),

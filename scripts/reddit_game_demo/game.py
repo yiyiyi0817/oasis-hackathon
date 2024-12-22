@@ -155,10 +155,11 @@ async def running(
         # social_log.info(f"timestep:{timestep + 1}.")
 
         player_agent = agent_graph.get_agent(0)
-        for i in range(len(pairs)):
-            product_content = f"Product name: '{pairs[i]['name']}'. {pairs[i]['content']}"
-            await player_agent.perform_action_by_data(
-                "create_post", content=product_content)
+        if timestep >= 5:
+            for i in range(len(pairs)):
+                product_content = f"Product name: '{pairs[i]['name']}'. {pairs[i]['content']}"
+                await player_agent.perform_action_by_data(
+                    "create_post", content=product_content)
         await player_agent.perform_action_by_hci()
 
         await infra.update_rec_table()
